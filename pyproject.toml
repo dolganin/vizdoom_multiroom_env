@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multiroom-color-goal"
+version = "1.0.0"
+description = "VizDoom MultiRoomColorGoal: a visual memory task with a scalable number and size of rooms"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "vizdoom>=1.2",
+    "gymnasium>=0.28",
+    "numpy",
+    "opencv-python",
+    "pillow",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+multiroom_color_goal = ["scenarios/*.wad", "scenarios/*.json", "scenarios/*.cfg"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
